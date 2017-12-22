@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()" class="YOYOYO">×BREAK×DOWN×</p>
+  <p onClick="makeGreen()">GLORIA </p>
+  <h1 onClick = "makeGreen()">YOs</h1>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelectorAll('p, h1');
+      var i;
+      for (var i=0; i<p.length; i++) {
+
+        p[i].style.color = '#BADA55';
+      }
+
+      // p.style.fontSize = '50px';
+    }
+
+
+
+    // function makeSalmon(){
+    //   const s = document.querySelector('h1');
+    //   s.style.color="salmon";
+    // }
+
+    // Regular
+
+    console.log("hello")
+
+    // Interpolated
+
+    console.log("Hello, I am a %s string!", "poop")
+    //es6
+    console.log(`Hello, I am a ${dogs[0].name} string!`)
+
+    // Styled
+
+    // console.log("%c I am some great text", "font-size: 50px; color: salmon; background-color: orange")
+
+    // warning!
+    console.warn("YO I'M WARNING YOU")
+
+    // Error :|
+    console.error("YO I'M erroring YOU")
+
+    // Info
+    console.info("crocs eat 3-4 people per year")
+
+
+    // Testing
+
+    const xox = document.querySelector('p');
+    console.assert(xox.classList.contains("YOYOYO"), "That is wrong")
+
+    // clearing
+    // console.clear()
+
+    // Viewing DOM Elements
+    console.log(xox)
+    console.dir(xox) //drop down shows all props of that element yasss*
+
+console.clear();
+    // Grouping together
+
+    dogs.forEach(dog => {
+
+      console.groupCollapsed(`${dog.name}`)
+        console.log(`This is ${dog.name}`)
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd();
+
+    })
+
+    // counting
+
+    console.count("Glo");
+    console.count("Glo");
+    console.count("Glo");
+
+
+    // timing
+
+    console.time("fetching data");
+    fetch('https://api.github.com/users/gcho91')
+    .then(data => data.json())
+    .then(data => {
+      console.timeEnd('fetching data')
+      console.log(data)
+    })
+
+    console.table(dogs)
+
+  </script>
+</body>
+</html>
